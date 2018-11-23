@@ -11,18 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
-	
-	private String testProperty;
-	
-	@Autowired
+		
+	@Autowired	
 	private UserService userService;
 	
-	@RequestMapping("/users")
+	@RequestMapping(method=RequestMethod.GET, value="/users")
 	public List<User> getAllUsers() {
 		return userService.getAllUsers();
 	}
 	
-	@RequestMapping("/users/{id}")
+	@RequestMapping(method=RequestMethod.GET, value="/users/{id}")
 	public User getUser(@PathVariable String id) {
 		return userService.getUser(id);
 	}
